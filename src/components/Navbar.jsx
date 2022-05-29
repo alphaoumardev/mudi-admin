@@ -34,8 +34,17 @@ const Navbar = () =>
     setScreenSize, screenSize, setCurrentMode} = useStateContext();
   const [themeColor, setThemeColor] = useState(false)
 
+  useEffect(() => {
+    return () => {
+    if(themeColor){setCurrentMode('Light')}
+    else {setCurrentMode('Dark')}
+
+    };
+  }, [themeColor]);
+
   useEffect(() =>
   {
+
     const handleResize = () => setScreenSize(window.innerWidth);
     window.addEventListener('resize', handleResize);
     handleResize();
@@ -44,7 +53,6 @@ const Navbar = () =>
 
   useEffect(() =>
   {
-
     if (screenSize <= 900)
     {
       setActiveMenu(false);
@@ -52,9 +60,8 @@ const Navbar = () =>
     {
       setActiveMenu(true);
     }
+
   }, [screenSize]);
-  if(themeColor){setCurrentMode('Dark')}
-  else {setCurrentMode('Light')}
 
   const handleActiveMenu = () => setActiveMenu(!activeMenu);
   return (
