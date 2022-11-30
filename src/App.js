@@ -1,16 +1,14 @@
 import React, { useEffect } from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import { FiSettings } from 'react-icons/fi';
-import { TooltipComponent } from '@syncfusion/ej2-react-popups';
 
-import { Navbar, Footer, Sidebar, ThemeSettings } from './components';
-import { Ecommerce, Orders, Calendar, Employees, Customers, Kanban} from './pages';
+import { Navbar, Footer, Sidebar } from './components';
+import {Ecommerce, Orders, Calendar, Employees, Customers, Kanban, Products} from './pages';
 import { useStateContext } from './contexts/ContextProvider';
 import './App.css';
 
 const App = () =>
 {
-  const { setCurrentColor, setCurrentMode, currentMode, activeMenu, currentColor, themeSettings, setThemeSettings } = useStateContext();
+  const { setCurrentColor, setCurrentMode, currentMode, activeMenu} = useStateContext();
 
   useEffect(() =>
   {
@@ -49,14 +47,13 @@ const App = () =>
               <Navbar />
             </div>
             <div>
-              {/*{themeSettings && (<ThemeSettings />)}*/}
-
               <Routes>
                 {/* dashboard  */}
                 <Route path="/" element={(<Ecommerce />)} />
                 <Route path="/ecommerce" element={(<Ecommerce />)} />
 
                 {/* pages  */}
+                <Route path="/products" element={<Products />} />
                 <Route path="/orders" element={<Orders />} />
                 <Route path="/employees" element={<Employees />} />
                 <Route path="/customers" element={<Customers />} />

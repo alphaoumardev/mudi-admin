@@ -28,7 +28,7 @@ const NavButton = ({ title, customFunc, icon, color, dotColor }) => (
     </button>
   </TooltipComponent>)
 
-const Navbar = () =>
+const Navbars = () =>
 {
   const { currentColor, activeMenu, setActiveMenu, handleClick, isClicked,
     setScreenSize, screenSize, setCurrentMode} = useStateContext();
@@ -102,4 +102,4 @@ const Navbar = () =>
   );
 };
 
-export default Navbar;
+export default Navbars;
